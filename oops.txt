@@ -1,0 +1,332 @@
+OOPs Concepts in Python
+•	Class
+•	Objects
+•	Polymorphism
+•	Encapsulation
+•	Inheritance
+•	Data Abstraction
+ +
+OOPs-
+OOP stands for object-oriented programming. It is a programming paradigm that revolves around the object rather than function and procedure. In other words, it is an approach for developing applications that emphasize on objects. An object is a real word entity that contains data and code. It allows binding data and code together.
+purpose-The main purpose of OOP is to bind together the data and the functions that operate on them so that no other part of the code can access this data except that function.
+Advantages of OOP-
+•	It follows a bottom-up approach.
+•	It models the real world well.
+•	It allows us the reusability of code.
+•	Avoids unnecessary data exposure to the user by using the abstraction.
+•	OOP forces the designers to have a long and extensive design phase that results in better design and fewer flaws.
+•	Decompose a complex problem into smaller chunks.
+•	Programmer are able to reach their goals faster.
+•	Minimizes the complexity.
+•	Easy redesign and extension of code that does not affect the other functionality.
+class-
+A class is a blueprint or template of an object. It is a user-defined data type. Inside a class, we define variables, constants, member functions, and other functionality. It is the best example of data binding. A class is a data type that is defined by the user and contains variables, properties and methods. A programmer can use classes in Python to find the properties of an object.
+
+class RectangleCube:
+    def __init__(self, length, breadth, height):
+        self.length = length
+        self.breadth = breadth
+        self.height = height    
+    def calculate_volume(self):
+        return self.length * self.breadth * self.height  
+    def calculate_area(self):
+        return 2 * (self.length * self.breadth + self.breadth * self.height + self.height * self.length)
+here, length, breadth and heights are properties of rectangle and methods belongs to objects. They are used to perform specific task
+Objects:
+An object is a collection of data (variables) and methods that operate on that data. object is an instance of a class. An object is created from a class using the constructor method, and it can access the attributes and methods defined in the class. Every time we create an object it will take diiferent spaces in heap memory.
+class RectangleCube:
+    def __init__(self, length, breadth, height):
+        self.length = length
+        self.breadth = breadth
+        self.height = height
+    def calculate_volume(self):
+        return self.length * self.breadth * self.height
+    def calculate_area(self):
+        return 2 * (self.length * self.breadth + self.breadth * self.height + self.height * self.length)
+r1 = RectangleCube(10, 5, 3)
+volume = r1.calculate_volume()
+area = r1.calculate_area()
+print("Volume:", volume)
+print("Area:", area)
+An object consists of:
+•	State: It is represented by the attributes of an object. It also reflects the properties of an object.
+•	Behavior: It is represented by the methods of an object. It also reflects the response of an object to other objects.
+•	Identity: It gives a unique name to an object and enables one object to interact with other objects.
+
+Self:
+the term “self” refers to the instance of the class that is currently being used. By using the “self” we can access  the attributes and methods of the class in Python.
+Class Person:
+def __init__(self,name,age):
+self.name="Navin"
+self.age=26
+
+p1=person()
+print(p1.name)
+__INIT__():
+All classes have a function called __init__(), which is always executed when the class is being initiated. The __init__() function is called automatically every time the class is being used to create a new object.
+Variables:
+
+ 
+a class variable is a variable that is defined within a class and outside of any class method. It is a variable that is shared by all instances of the class, meaning that if the variable's value is changed, the change will be reflected in all instances of the class. Class variables help store data common to all instances of a class.
+In Python you can access class variables in the constructor of a class. The constructor is defined using the special method __init__() and is called automatically when an instance of a class is created.
+class Employee:
+    office_name = "XYZ Private Limited"
+    def __init__(self):
+        print(Employee.office_name)
+my_instance = Employee()
+To access the value of the class variable within the constructor, you can use self to access the class variable instead of using the class name as shown in the following example.
+class Employee:
+    office_name = "XYZ Private Limited"    
+    def __init__(self, name):
+        self.name = name
+        print(self.office_name)
+my_instance = Employee("Ram")
+o access the value of the class variable, you can use the dot notation. Since the class variable is associated with a class, you don’t even need to declare an instance of the class to see its value.
+
+class Employee:
+    office_name = "XYZ Private Limited"
+print(Employee.office_name)
+class Employee:
+    # Class variable
+    office_name = 'XYZ Private Limited'
+
+    class Employee:
+    # Class variable
+    office_name = 'XYZ Private Limited'
+ In Python, you can modify a class variable using the class name or an instance of the class.
+    # Constructor
+    def __init__(self, employee_name, employee_ID):
+        self.employee_name = employee_name 
+        self.employee_ID = employee_ID
+  
+    def show(self):
+        print("Name:", self.employee_name)
+        print("ID:", self.employee_ID)
+        print("Office name:", Employee.office_name)   
+# create Object
+e1= Employee('Ram', 'T0166')
+print('Before')
+e1.show()
+# Modify class variable
+Employee.office_name = 'PQR Private Limited'
+print('After')
+e1.show()
+ 
+Local variables in Python are those which are initialized inside a function and belong only to that particular function. It cannot be accessed anywhere outside the function. 
+These are those which are defined outside any function and which are accessible throughout the program, i.e., inside and outside of every function. Let’s see how to create a Python global variable.
+ 
+
+Methods:
+Python methods has various uses:
+•	Methods in Python are used to define the behaviour of the Python objects. 
+•	Methods are used to improve the readability and maintainability of code.  
+•	They help in breaking down complex tasks into smaller, more manageable tasks 
+Types of methoods:
+In Python, there are three types of methods: instance, class, and static.  
+Instance methods are associated with an instance of a class and can modify the data stored within the instance.  
+Class methods are associated with the class rather than an instance and can access and modify class-level data.  
+Static methods are similar to functions outside of the class and cannot access any instance or class data.  
+
+Constructor:
+Constructor in python is a special method that is called when an object is created. The purpose of a python constructor is to assign values to the data members within the class when an object is initialized
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person = Person("John", 30)
+print(person.name)
+print(person.age)
+In this example, the __init__ method is called when the Person object is created, and it sets the name and age attributes of the object.
+The __init__ method is commonly referred to as the “constructor” because it is responsible for constructing the object. It is called automatically when the object is created, and it is used to initialize the object’s attributes.
+Rules of Python Constructor
+Here are some rules for defining constructors in Python:
+
+The constructor method must be named __init__. This is a special name that is recognized by Python as the constructor method.
+The first argument of the constructor method must be self. This is a reference to the object itself, and it is used to access the object’s attributes and methods.
+The constructor method must be defined inside the class definition. It cannot be defined outside the class.
+The constructor method is called automatically when an object is created. You don’t need to call it explicitly.
+You can define both default and parameterized constructors in a class. If you define both, the parameterized constructor will be used when you pass arguments to the object constructor, and the default constructor will be used when you don’t pass any arguments.
+Types of Python Constructor
+In Python, there are two types of constructors:
+
+Default Constructor: A default constructor is a constructor that takes no arguments. It is used to create an object with default values for its attributes.
+class Person:
+    def __init__(self):
+        self.name = "John"
+        self.age = 30
+
+person = Person()
+print(person.name)
+print(person.age)
+
+Parameterized Constructor: A parameterized constructor is a constructor that takes one or more arguments. It is used to create .Parameterized constructors are useful when you want to create an object with custom values for its attributes. They allow you to specify the values of the object’s attributes when the object is created, rather than using default values.
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person = Person("Alice", 25)
+print(person.name)
+print(person.age)
+it sets the values of the name and age attributes of the object to the values of these arguments.
+Non-Parameterized Constructor: A non-parameterized constructor is a constructor that does not take any arguments. It is a special method in Python that is called when you create an instance of a class. The non-parameterized constructor is used to initialize the default values for the instance variables of the object.
+Multiple Constructors in Single Class-This is known as “method overloading”.
+class MyClass:
+    def __init__(self, arg1, arg2):
+        self.arg1 = arg1
+        self.arg2 = arg2    
+    def __init__(self, arg1):
+        self.arg1 = arg1
+        self.arg2 = None
+Note: Python does not have true method overloading like some other programming languages. When you define multiple methods with the same name in a single class, only the last one will be used. However, you can use default values for arguments to achieve a similar effect.
+difference between method and constructor
+static and non static in python:
+Class College{
+CGPA
+College_name
+}
+Here everyone will be having their own set of cgpa, if they are study from the same college college name will be same for all.
+Static means something is same for all the objects. since all the objects are pointing to same value i.e., static college_name. They can be also called via class name. 
+Non static means something differs as per object
+
+Famous interview questions:
+if we have a static method and we try to access non static variable/method inside it what will happen?-----
+class college{
+static string college_name;
+double cgpa
+public static void student_details():
+print(college_name)
+print(cgpa)
+}
+College.student_details
+Objects get into a confusion state and result in a error
+if we have a non-static method and we try to access static variable/method inside it what will happen?-------
+class college{
+      static string college_name;
+      double cgpa;
+public void student_details():
+     print(college_name)
+     print(cgpa)
+}
+}
+Vaibhav.student_details()
+This will give expected output and doesn’t throw an error
+Class abc:
+X=5
+
+Def print_attribute(self):
+Print(abc.x)
+Obj=abc()
+Print(abc.x)--5
+obj.x=10#non-static
+Print(obj.x)--10
+Print(abc.x)--5
+
+Destructor:
+It reallocates space or frees up space which we don’t require anymore. Java has garbage collector(variable having local scope once we out of scope ten that variable is of no value then we free up the space) both c++ and python have destructors.
+In python we use something known as delete 
+Class Employee:
+Def __init__(self):
+Print(‘Employee created’)
+Def __del__(self):
+    Print(“Destructor called”)
+
+Def Create_obj():
+   Print(“Making Object……”)
+   Obj=Employee()
+Print(“Function end……”)
+Print(‘calling creating_obj() function….’)
+Create_obj()
+Print(‘program end…)
++
+Python Inheritance
+Inheritance is the capability of one class to derive or inherit the properties from another class. The class that derives properties is called the derived class or child class and the class from which the properties are being derived is called the base class or parent class. The benefits of inheritance are:
+•	It represents real-world relationships well.
+•	It provides the reusability of a code. We don’t have to write the same code again and again. Also, it allows us to add more features to a class without modifying it.
+•	It is transitive in nature, which means that if class B inherits from another class A, then all the subclasses of B would automatically inherit from class A.
+Types of Inheritance
+•	Single Inheritance: Single-level inheritance enables a derived class to inherit characteristics from a single-parent class.
+•	Multilevel Inheritance: Multi-level inheritance enables a derived class to inherit properties from an immediate parent class which in turn inherits properties from his parent class. A<-B<-C
+•	Hierarchical Inheritance: Hierarchical-level inheritance enables more than one derived class to inherit properties from a parent class. A<-B,C
+•	Multiple Inheritance: Multiple-level inheritance enables one derived class to inherit properties from more than one base class. A,B,C<-D
+class Animal:  
+    def speak(self):  
+        print("speaking")  
+class Dog(Animal):  
+    def speak(self):  
+        print("Barking")  
+d = Dog()  
+d.speak()  
+MRO is from bottom to top and left to right. This means that, first, the method is searched in the class of the object(child class). If it’s not found, it is searched in the immediate super class. In the case of multiple super classes, it is searched left to right, in the order by which was declared by the developer.(c3 linearization algorithm)
+issubclass(sub, sup)
+isinstance(obj,class) method is used to check the relationship between the objects and classes.
+
+Super():
+In Python, the super() function is used to refer to the parent class or superclass. It allows you to call methods defined in the superclass from the subclass, enabling you to extend and customize the functionality inherited from the parent class.
+In the given example, The Emp class has an __init__ method that initializes the id, and name and Adds attributes. The Freelance class inherits from the Emp class and adds an additional attribute called Emails. It calls the parent class’s __init__ method super() to initialize the inherited attribute
+https://www.geeksforgeeks.org/python-super/
+When this method is called it allows the class to initialize the attributes of the class. In an inherited subclass, a parent class can be referred to with the use of the super() function. The super function returns a temporary object of the superclass that allows access to all of its methods to its child class.
+class ParentClass:
+def Parent_method(self):
+print(“this is parent method”)
+class ChildClass(ParentClass):
+def Parent_method(self):
+print(“this is parent method”)
+def Child_method(self):
+print(“this is child method”)
+super().parent_method()
+child_object= ChildClass()
+child_object.Child_method()
+Benefits of Super Function
+•	Need not remember or specify the parent class name to access its methods. This function can be used both in single and multiple inheritances.
+•	This implements modularity (isolating changes) and code reusability as there is no need to rewrite the entire function.
+•	The super function in Python is called dynamically because Python is a dynamic language, unlike other languages.
+
+
+
+class Employee:
+  def __init__(self, name, id):
+    self.name = name
+    self.id = id
+
+class Programmer(Employee):
+  def __init__(self, name, id, lang):
+    super().__init__( name, id)
+    self.lang = lang
+
+rohan = Employee("Rohan Das", "420")
+harry = Programmer("Harry", "2345", "Python")
+print(harry.name)<-Harry
+print(harry.id)<-2345
+print(harry.lang)<-Python
+method overriding:
+We may need to perform method overriding in the scenario where the different definition of a parent class method is needed in the child class.
+Mutable: All reference data types are mutable
+Set/dict/List
+Immutable: Built in packages like int,float,bool,string,tuple
+
+Sets { }:
+1.	A Set is an unordered collection data type that is iterable, mutable and has no duplicate elements. 
+2.	sets are unordered, we cannot access items using indexes as we do in lists.
+3.	Python sets cannot have a duplicate value and once it is created we cannot change its value.
+4.	we cannot assign or change a value once the set is created. We can only add or delete items in the set.
+5.	Python sets can store heterogeneous elements.
+
+S2={1,2,3,2,1,2}=>{1,2,3}=eleminates duplicates 
+Set cannot have mutable items=>{1,2,[3,4]}X
+Len(set),max(set),min,sum,sorted,enumerate,any,all,add,remove,discard,pop,union(|),update,intersection(&)No index entries found.,intersection_update,difference,difference_update,symmetric_diff,…._update,issubset,isdisjoint,
+Python Frozen Sets:-
+Sets are mutable but frozensets are immutable hence cannot be modified,
+FS can be hashed,but sets can’t for that reason FS can be used as dict ‘keys’ but sets cannot be used as dict keys,
+ 
+
+https://www.geeksforgeeks.org/sets-in-python/
+Dictionary:
+•	Dictionary holds key: value pair.
+•	Values in a dictionary can be of any data type and can be duplicated, whereas keys can’t be repeated and must be immutable.
+•	Dictionary keys are case sensitive, the same name but different cases of Key will be treated distinctly.
+•	Python Sets are implemented using a dictionary.
+Accessing elements of a Dictionary:
+
+Thank you,
